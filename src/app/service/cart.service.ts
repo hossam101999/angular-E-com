@@ -9,6 +9,7 @@ export class CartService {
   private cartItems: { product: Product, quantity: number }[] = [];
   cartItemsChanged = new BehaviorSubject<void>(undefined);
   constructor() { }
+
   addProduct(product: Product, quantity: number): void {
     const itemProduct = this.cartItems.find(item => item.product.id === product.id);
     if (itemProduct) {
@@ -18,8 +19,9 @@ export class CartService {
     } else {
       this.cartItems.push({ product, quantity: Math.min(quantity, product.stock) });
     }
-    this.cartItemsChanged.next();
+    this.cartItemsChanged.next(); // إشعار التغيير
   }
+
 
 
   getCartItems(): { product: Product, quantity: number }[] {
@@ -37,8 +39,12 @@ export class CartService {
     const item = this.cartItems.find(item => item.product.id === productId);
     if (item && quantity > 0 && quantity <= item.product.stock) {
       item.quantity = quantity;
-      this.cartItemsChanged.next();
+      this.cartItemsChanged.next(); // إشعار التغيير
     }
+
+
+
+
   }
   getCartItemCount(): number {
     return this.cartItems.reduce((total, item) => total + item.quantity, 0);

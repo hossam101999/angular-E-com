@@ -71,6 +71,7 @@ export class ProductDetailsComponent implements OnInit {
   //   console.log('Product added to cart:', this.product);
   //   console.log('Quantity:', this.quantity);
   // }
+
   addToCart(): void {
     if (this.product) {
       this.cartService.addProduct(this.product, this.quantity);

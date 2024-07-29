@@ -1,14 +1,13 @@
 <div *ngIf="product" class="product-details-container">
     <div class="row">
-        <div class="col-md-6" style="height: 700px;">
-            <img [src]="product.images[0]" class="w-100 h-100" alt="{{ product.title }}">
+        <div class="col-md-6 image-container">
+            <img [src]="product.images[0]" class="w-100" alt="{{ product.title }}">
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 details-container">
             <h2 class="mt-5">{{ product.title }}</h2>
             <p class="text-muted">{{ product.description }}</p>
 
-            <!-- product-card.component.html -->
             <div class="rating">
                 <ng-container *ngFor="let _ of [].constructor(getStars(product.rating).full)">
                     <i class="fa-solid fa-star"></i>
@@ -22,35 +21,25 @@
                 </ng-container>
             </div>
 
-
             <hr>
 
-            <div class="mb-3">
-                @if (product.stock > 0) {
-                <span class="badge badge-success">In stock</span>
-                } @else {
-                <span class="badge badge-danger">Out of stock</span>
-                }
-            </div>
+            <p [ngClass]="getStockStatusClass()">{{ getStockStatus() }}</p>
 
-            @if (product.discountPercentage > 0) {
-            <p class="price">
+            <p *ngIf="product.discountPercentage > 0" class="price">
                 Discounted Price: {{ product.price | discountPrice: product.discountPercentage }} EGP
             </p>
-            } @else {
-            <p class="price">{{ product.price }} EGP</p>
-            }
+            <p *ngIf="product.discountPercentage === 0" class="price">{{ product.price }} EGP</p>
 
-            <p>{{ product.shippingInformation }}</p>
-            <P> {{product.category}}</P>
+            <div class="category-box">
+                <p class="category-title">Category:</p>
+                <p class="category-content">{{ product.category }}</p>
+            </div>
 
             <hr>
-            <div class="d-flex mb-3">
-                <div class="quantity-controls d-flex align-items-center">
-                    <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity()">-</button>
-                    <input type="text" class="form-control text-center mx-2" [value]="quantity" readonly>
-                    <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity()">+</button>
-                </div>
+            <div class="d-flex mb-3 quantity-controls">
+                <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity()">-</button>
+                <input type="text" class="form-control text-center mx-2" [value]="quantity" readonly>
+                <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity()">+</button>
                 <p class="ms-3"><strong>Only <span class="text-danger">{{ product.stock }} items</span> left</strong>
                 </p>
             </div>

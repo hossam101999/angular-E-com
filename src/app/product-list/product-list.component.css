@@ -1,52 +1,74 @@
 /* Container for the product cards */
 .card-container {
     padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    /* Adjust gap between cards */
 }
 
+/* Card styling */
 .card {
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 12px;
+    /* Rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    /* Ensure card grows with content */
 }
 
 .card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Card image styling */
 .card-img-top {
     width: 100%;
     height: 200px;
     object-fit: cover;
     border-bottom: 1px solid #ddd;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
+/* Card body styling */
 .card-body {
     padding: 16px;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    /* Allow the body to expand */
 }
 
+/* Card title styling */
 .card-title {
-    font-size: 18px;
-    font-weight: bold;
+    font-size: 1.125rem;
+    font-weight: 600;
     margin-bottom: 12px;
+    color: #333;
+    /* Darker color for title */
 }
 
+/* Card text styling */
 .card-text {
-    font-size: 16px;
+    font-size: 1rem;
     margin-bottom: 12px;
+    color: #555;
+    /* Slightly lighter color for text */
 }
 
+/* Button styling */
 .btn {
     display: inline-block;
     padding: 10px 16px;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 600;
     text-align: center;
     color: #fff;
     background-color: #007bff;
@@ -61,6 +83,7 @@
     transform: scale(1.05);
 }
 
+/* Success and Danger text styling */
 .text-success {
     color: #28a745;
 }

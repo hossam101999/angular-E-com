@@ -16,16 +16,15 @@
         <button class="btn btn-primary">Add to Cart</button>
     </div>
 </div> -->
+<!-- <img [src]="product.images[0]" alt="{{ product.title }}" class="card-img"> -->
 
 <div class="card">
-    <!-- <img [src]="product.images[0]" alt="{{ product.title }}" class="card-img"> -->
     <img [src]="product.thumbnail || product.images[0]" alt="{{ product.title }}" class="card-img">
 
 
     <div class="card-body" (click)="onSelectProduct()">
         <h5 class="card-title">{{ product.title }}</h5>
         <hr>
-        <!-- <p class="price">{{ product.price }} EGP</p> -->
 
 
         @if (product.discountPercentage > 0) {
@@ -36,7 +35,9 @@
         } @else {
         <p class="price">{{ product.price }} EGP</p>
         }
-        <!-- <p class="text-muted">{{ product.description }}</p> -->
+        <div>
+            <p class="text-muted">{{ product.description }}</p>
+        </div>
 
         <div class="rating">
 
@@ -52,7 +53,10 @@
             </ng-container>
 
         </div>
-        <p [ngClass]="getStockStatusClass()">{{ getStockStatus() }}</p>
+        <div *ngIf="product">
+            <p [ngClass]="getStockInfo().statusClass">{{ getStockInfo().status }}</p>
+        </div>
+
 
     </div>
     <div> <button class="btn btn-primary w-100" (click)="addToCart()"> to

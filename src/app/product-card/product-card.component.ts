@@ -21,6 +21,7 @@ import { ProductService } from '../service/product.service';
 export class ProductCardComponent {
   @Input() product!: Product;
   quantity: number = 1;
+
   constructor(private router: Router, private cartService: CartService
     , private productService: ProductService
   ) { }
@@ -31,22 +32,26 @@ export class ProductCardComponent {
     return { full: fullStars, half: halfStar };
   }
 
-  getStockStatus(): string {
-    return this.product.stock > 0 ? 'In Stock' : 'Out of Stock';
+  getStockInfo(): { status: string, statusClass: string } {
+
+    if (this.product.stock >= 0) {
+      return { status: 'Available', statusClass: 'in-stock' };
+    } else {
+      return { status: 'Out of Stock', statusClass: 'out-of-stock' };
+    }
   }
 
-  getStockStatusClass(): string {
-    return this.product.stock > 0 ? 'in-stock' : 'out-of-stock';
-  }
 
-  onSelectProduct(): void {
-    this.router.navigate(['/product', this.product.id]);
-  }
   addToCart(): void {
     if (this.product) {
       this.cartService.addProduct(this.product, this.quantity);
-      // this.router.navigate(['/cart']);
+
     }
+  }
+
+
+  onSelectProduct(): void {
+    this.router.navigate(['/product', this.product.id]);
   }
   handleAddToCart(product: any) {
     this.productService.addToCart(product);
