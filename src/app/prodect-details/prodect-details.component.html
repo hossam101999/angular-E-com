@@ -1,0 +1,61 @@
+<div *ngIf="product" class="product-details-container">
+    <div class="row">
+        <div class="col-md-6" style="height: 700px;">
+            <img [src]="product.images[0]" class="w-100 h-100" alt="{{ product.title }}">
+        </div>
+
+        <div class="col-md-6">
+            <h2 class="mt-5">{{ product.title }}</h2>
+            <p class="text-muted">{{ product.description }}</p>
+
+            <!-- product-card.component.html -->
+            <div class="rating">
+                <ng-container *ngFor="let _ of [].constructor(getStars(product.rating).full)">
+                    <i class="fa-solid fa-star"></i>
+                </ng-container>
+                <ng-container *ngIf="getStars(product.rating).half">
+                    <i class="fa-solid fa-star-half-alt"></i>
+                </ng-container>
+                <ng-container
+                    *ngFor="let _ of [].constructor(5 - getStars(product.rating).full - (getStars(product.rating).half ? 1 : 0))">
+                    <i class="fa-regular fa-star"></i>
+                </ng-container>
+            </div>
+
+
+            <hr>
+
+            <div class="mb-3">
+                @if (product.stock > 0) {
+                <span class="badge badge-success">In stock</span>
+                } @else {
+                <span class="badge badge-danger">Out of stock</span>
+                }
+            </div>
+
+            @if (product.discountPercentage > 0) {
+            <p class="price">
+                Discounted Price: {{ product.price | discountPrice: product.discountPercentage }} EGP
+            </p>
+            } @else {
+            <p class="price">{{ product.price }} EGP</p>
+            }
+
+            <p>{{ product.shippingInformation }}</p>
+            <P> {{product.category}}</P>
+
+            <hr>
+            <div class="d-flex mb-3">
+                <div class="quantity-controls d-flex align-items-center">
+                    <button class="btn btn-outline-secondary" type="button" (click)="decreaseQuantity()">-</button>
+                    <input type="text" class="form-control text-center mx-2" [value]="quantity" readonly>
+                    <button class="btn btn-outline-secondary" type="button" (click)="increaseQuantity()">+</button>
+                </div>
+                <p class="ms-3"><strong>Only <span class="text-danger">{{ product.stock }} items</span> left</strong>
+                </p>
+            </div>
+            <button class="btn btn-warning btn-lg" routerLink="/cart" routerLinkActive="active"
+                (click)="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+</div>

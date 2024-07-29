@@ -1,0 +1,76 @@
+.card {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+    height: 600px;
+    width: fit-content;
+    margin-bottom: 25px;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+.card-img-top {
+    border-bottom: 1px solid #e0e0e0;
+    max-height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text.price {
+    color: #b12704;
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.rating {
+    margin-bottom: 10px;
+}
+
+.rating i {
+    color: #ffa500;
+    margin-right: 2px;
+}
+
+.stock-status {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.in-stock {
+    color: #007600;
+    /* Green for in stock */
+}
+
+.out-of-stock {
+    color: #d9534f;
+    /* Red for out of stock */
+}
+
+.btn-primary {
+    background-color: #ffa500;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #e08900;
+}

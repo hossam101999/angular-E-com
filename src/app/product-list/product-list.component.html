@@ -1,0 +1,36 @@
+<!-- <app-product-list></app-product-list> -->
+<!-- 
+    
+<app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+</div>
+<div class="container"> -->
+<div class="card-container">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  ">
+        @for (product of products; track product.id) {
+        <div class="col">
+            <app-product-card [product]="product"></app-product-card>
+        </div>
+        } @empty {
+        <p>Data not found</p>
+        }
+    </div>
+</div>
+<!-- <div class="row">
+    <div class="col-md-4" *ngFor="let product of products" (click)="onSelectProduct(product.id)">
+        <div class="card">
+            <img [src]="product.images[0]" alt="{{ product.title }}" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.title }}</h5>
+                <p class="card-text">{{ product.price }} EGP</p>
+                <[] </div>
+            </div>
+        </div>
+    </div> -->
+
+<!-- <div *ngFor="let product of products">
+    <div (click)="goToDetails(product.id)">
+      <p>{{ product.title }}</p>
+      <p>{{ product.price | discountPrice: product.discountPercentage }}</p>
+    </div>
+  </div> -->
