@@ -5,17 +5,22 @@ import { Product } from '../product.model';
 import { ProductService } from '../service/product.service';
 import { DiscountPricePipe } from '../discount-price.pipe';
 
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, DiscountPricePipe],
+  imports: [CommonModule, DiscountPricePipe, RouterLink],
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
   cartItems: { product: Product, quantity: number }[] = [];
 
-  constructor(private cartService: CartService, private productService: ProductService) { }
+  constructor(private cartService: CartService, private productService: ProductService,
+    private route: ActivatedRoute,
+    private router: Router
+    ,) { }
 
   ngOnInit(): void {
     this.loadCartItems();
@@ -43,5 +48,9 @@ export class CartComponent implements OnInit {
   // دالة لحساب السعر بعد الخصم
   calculateDiscountedPrice(price: number, discountPercentage: number): number {
     return price - (price * discountPercentage / 100);
+  }
+  addTobuy(): void {
+    this.router.navigate(['/cart']);
+
   }
 }

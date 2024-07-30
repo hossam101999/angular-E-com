@@ -1,3 +1,8 @@
+<!-- <li class="nav-item">
+    <a class="nav-link" routerLink="/products" routerLinkActive="active">
+        <i class="fa-brands fa-product-hunt"></i> Products
+    </li>
+    </a> -->
 <!-- <app-navbar.></app-navbar.> -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">MyApp</a>
@@ -8,26 +13,31 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/products" routerLinkActive="active">
-                    <i class="fa-brands fa-product-hunt"></i> Products
-                </a>
-            </li>
-            <li class="nav-item">
+            <!-- <li class="  align-content-xl-end d-flex">
                 <a class="nav-link" routerLink="/register" routerLinkActive="active">
                     <i class="fa-solid fa-address-card"></i> Register
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/cart" routerLinkActive="active">
-                    <i class="fa-solid fa-cart-plus"></i> Cart ({{ cartItemCount }})
+            </li> -->
+            <div class="cartlink">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/cart" routerLinkActive="active">
+                        <i class="fa-solid fa-cart-plus"></i> Cart ({{ cartItemCount }})
+                    </a>
+                </li>
+            </div>
+            <div>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" routerLinkActive="active">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login
+                    </a>
+                </li>
+
+            </div>
+            <!-- <li class="nav-item"> -->
+            <!-- <a class="nav-link" routerLink="/buy" routerLinkActive="active">
+                    <i class="fa-solid fa-right-to-bracket"></i> buy
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/login" routerLinkActive="active">
-                    <i class="fa-solid fa-right-to-bracket"></i> Login
-                </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 </nav>

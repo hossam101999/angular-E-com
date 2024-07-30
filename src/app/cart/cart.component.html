@@ -25,6 +25,7 @@
                         <button (click)="updateQuantity(item.product.id, item.quantity + 1)"
                             [disabled]="item.quantity >= item.product.stock" class="btn btn-secondary">+</button>
                         <button (click)="removeItem(item.product.id)" class="btn btn-danger mt-2">Remove</button>
+
                     </div>
                 </div>
                 <hr>
@@ -33,6 +34,10 @@
 
         <div class="total mt-4">
             <h3>Total: {{ getTotalPrice() | currency }}</h3>
+            <div routerLink="/buy">
+                <button class="btn btn-debug btn-lg" (click)="addTobuy()">lets buy</button>
+            </div>
+
         </div>
     </div>
 </div>

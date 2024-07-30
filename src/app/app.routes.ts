@@ -7,6 +7,7 @@ import { CartComponent } from './cart/cart.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductDetailsComponent } from './prodect-details/prodect-details.component';
+import { BuyComponent } from './buy/buy.component';
 
 export const routes: Routes = [
     {
@@ -38,6 +39,12 @@ export const routes: Routes = [
         component: LoginComponent,
         title: 'Login'
     },
+    {
+        path: 'buy',
+        component: BuyComponent,
+        title: 'buying'
+    }
+    ,
     {
         path: '**',
         component: NotFoundComponent,
