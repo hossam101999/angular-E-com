@@ -1,4 +1,37 @@
-.nav-link.active {
-    color: orange;
+/* Navbar container */
+.navbar {
+    padding: 0.5rem 1rem;
+}
 
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+
+.navbar-collapse {
+    justify-content: flex-end;
+}
+
+.nav-link {
+    font-size: 1rem;
+    margin-left: 1rem;
+    color: #333;
+    transition: color 0.3s;
+}
+
+
+
+
+.nav-link.active {
+    font-weight: bold;
+    color: orange;
+}
+
+.nav-link i {
+    margin-right: 0.5rem;
 }

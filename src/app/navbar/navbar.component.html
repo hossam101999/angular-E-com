@@ -12,32 +12,27 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav mr-auto">
-            <!-- <li class="  align-content-xl-end d-flex">
-                <a class="nav-link" routerLink="/register" routerLinkActive="active">
-                    <i class="fa-solid fa-address-card"></i> Register
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/cart" routerLinkActive="active">
+                    <i class="fa-solid fa-cart-plus"></i> Cart ({{ cartItemCount }})
                 </a>
-            </li> -->
-            <div class="cartlink">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/cart" routerLinkActive="active">
-                        <i class="fa-solid fa-cart-plus"></i> Cart ({{ cartItemCount }})
-                    </a>
-                </li>
-            </div>
-            <div>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/login" routerLinkActive="active">
-                        <i class="fa-solid fa-right-to-bracket"></i> Login
-                    </a>
-                </li>
-
-            </div>
-            <!-- <li class="nav-item"> -->
-            <!-- <a class="nav-link" routerLink="/buy" routerLinkActive="active">
-                    <i class="fa-solid fa-right-to-bracket"></i> buy
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/login" routerLinkActive="active">
+                    <i class="fa-solid fa-right-to-bracket"></i> Login
                 </a>
-            </li> -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/products" routerLinkActive="active">
+                    <i class="fa-brands fa-product-hunt"></i> Products
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/buy" routerLinkActive="active">
+                    <i class="fa-solid fa-shopping-cart"></i> Buy
+                </a>
+            </li>
         </ul>
     </div>
 </nav>
